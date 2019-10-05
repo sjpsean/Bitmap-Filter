@@ -12,5 +12,11 @@ bool readBMPHeader(FILE* inputFile, BMPHeader* bmpHeader){
 };
 
 bool writeBMPHeader(FILE* outputFile, BMPHeader bmpHeader){
-	return true;
+	if(fwrite(&bmpHeader.headerField, 2, 1, outputFile) == 1){
+	if(fwrite(&bmpHeader.fileSize, 4, 1, outputFile) == 1){
+	if(fwrite(&bmpHeader.reservedBytes, 4, 1, outputFile) == 1){
+	if(fwrite(&bmpHeader.pixelOffset, 4, 1, outputFile) == 1){
+		return true;
+	}}}}
+	return false;
 };

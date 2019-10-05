@@ -18,5 +18,18 @@ bool readDIBHeader(FILE* inputFile, DIBHeader* dibHeader){
 }
 
 bool writeDIBHeader(FILE* outputFile, DIBHeader dibHeader){
-	return true;
+	if (fwrite(&dibHeader.dibHeaderSize, 4, 1, outputFile) == 1){
+	if (fwrite(&dibHeader.pixelWidth, 4, 1, outputFile) == 1){
+	if (fwrite(&dibHeader.pixelHeight, 4, 1, outputFile) == 1){
+	if (fwrite(&dibHeader.colorPlanes, 2, 1, outputFile) == 1){
+	if (fwrite(&dibHeader.bitPerPixel, 2, 1, outputFile) == 1){
+	if (fwrite(&dibHeader.compMethod, 4, 1, outputFile) == 1){
+	if (fwrite(&dibHeader.imgSize, 4, 1, outputFile) == 1){
+	if (fwrite(&dibHeader.HRes, 4, 1, outputFile) == 1){
+	if (fwrite(&dibHeader.VRes, 4, 1, outputFile) == 1){
+	if (fwrite(&dibHeader.numColors, 4, 1, outputFile) == 1){
+	if (fwrite(&dibHeader.numImportantColors, 4, 1, outputFile) == 1){
+		return true;
+	}}}}}}}}}}}
+	return false;
 }
